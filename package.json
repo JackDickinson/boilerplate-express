@@ -9,7 +9,7 @@
     "fcc-express-bground": "https://github.com/freeCodeCamp/fcc-express-bground-pkg.git"
   },
   "main": "server.js",
-  "scripts": {
+  "scripts": { 
     "start": "node server.js"
   }
 }
