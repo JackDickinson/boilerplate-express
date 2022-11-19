@@ -8,6 +8,14 @@ app.use('/json', (req, res, next) => {
     next();
 });
 
+// respond with current time in JSON format
+app.get('/now', (req, res, next) => {
+    req.time = new Date().toString();
+    next();
+    }, (req, res) => {
+        res.json({time: req.time});
+        });
+
 app.get('/', function(req,res) {
     res.sendFile(__dirname + '/views/index.html');
 })
