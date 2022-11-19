@@ -2,6 +2,12 @@ let express = require('express');
 let app = express();
 require('dotenv').config();
 
+app.use('/json', (req, res, next) => {
+    var loggerMessage = req.method + " " + req.path + " - " + req.ip;
+    console.log(loggerMessage);
+    next();
+});
+
 app.get('/', function(req,res) {
     res.sendFile(__dirname + '/views/index.html');
 })
