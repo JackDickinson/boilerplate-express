@@ -27,7 +27,7 @@ app.get('/:word/echo', (req, res) => {
 
 // get first and second name from query string
 app.route('/name').get((req, res) => {
-    res.json({name: req.query.first + " " + req.query.last});
+    res.json({name: req.body.first + " " + req.body.last});
 }).post((req, res) => {
     res.json({name: req.body.first + " " + req.body.last});
 });
