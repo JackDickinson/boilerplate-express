@@ -21,6 +21,13 @@ app.get('/:word/echo', (req, res) => {
     res.json({"echo": req.params.word});
 })
 
+// get first and second name from query string
+app.route('/name').get((req, res) => {
+    res.json({name: req.query.first + " " + req.query.last});
+}).post((req, res) => {
+    res.json({name: req.body.first + " " + req.body.last});
+});
+
 app.get('/', function(req,res) {
     res.sendFile(__dirname + '/views/index.html');
 })
