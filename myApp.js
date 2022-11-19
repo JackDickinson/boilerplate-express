@@ -1,5 +1,6 @@
 let express = require('express');
 let app = express();
+let bodyParser = require('body-parser');
 require('dotenv').config();
 
 app.use('/json', (req, res, next) => {
@@ -7,6 +8,9 @@ app.use('/json', (req, res, next) => {
     console.log(loggerMessage);
     next();
 });
+
+// adding bodyParser encoding
+app.use(bodyParser.urlencoded({extended: false}));
 
 // respond with current time in JSON format - chained middleware with handler
 app.get('/now', (req, res, next) => {
