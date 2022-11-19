@@ -8,13 +8,18 @@ app.use('/json', (req, res, next) => {
     next();
 });
 
-// respond with current time in JSON format
+// respond with current time in JSON format - chained middleware with handler
 app.get('/now', (req, res, next) => {
     req.time = new Date().toString();
     next();
     }, (req, res) => {
         res.json({time: req.time});
         });
+
+// echo the query string
+app.get('/:word/echo', (req, res) => {
+    res.json({"echo": req.params.word});
+})
 
 app.get('/', function(req,res) {
     res.sendFile(__dirname + '/views/index.html');
